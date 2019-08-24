@@ -1,6 +1,6 @@
 from flask import Flask
 import os
-FLASK_PORT = os.environ.get('FLASK_PORT_DEV')
+FLASK_PORT = os.environ.get('FLASK_PORT')
 FLASK_ENV = os.environ.get('FLASK_ENV')
 
 app = Flask(__name__)
