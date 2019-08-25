@@ -1,8 +1,14 @@
 version: '2.1'
 
 services:
-  backtobasic:
-    image: backtobasic
+  app:
+    image: flask-server
+    container_name: flask-server
     build: .
     ports:
-      - 5000:5000
+      - 3001:3000
+
+  os:
+    image: ubuntu:16.04
+    container_name: ubuntu
+    command: ['sleep', '5000']
