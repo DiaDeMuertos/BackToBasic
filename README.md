@@ -93,10 +93,25 @@ If more than one container are in the same network, they can call eachother just
 root@f15bf440ec37:$ curl flask-server:3000
 ```
 
+Link contailer eachother. This thay can call the other one.
+
+```
+$ docker run --name ubuntu -it --link flask-server:flask-server ubuntu:16.04 /bin/bash
+$ root@f15bf440ec37:$ curl flask-server:3000
+```
+
+To build more than one image.
+
+```
+$ docker-compose build
+```
+
+To start more than one container.
+
+```
+$ docker-compose up
+```
+
 ## Links
 
 - [Docker Tutorial for Beginners](https://www.youtube.com/watch?v=LIpQGLdll7A)
-
-```
-
-```
