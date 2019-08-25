@@ -74,6 +74,29 @@ Add volumen to a container.
 $ docker run --name flask-server -v $(pwd)/src:/app flask-server:latest
 ```
 
+Run a container in the same host network. We can use bridge as default, none or host.
+
+```
+$ docker run --name flask-server --network=host flask-server:latest
+```
+
+Create custom network and start a container.
+
+```
+$ docker network create --driver=bridge --subnet=182.18.0.0/16 fron-end
+$ docker run --name flask-server --network=custom-isolated-network flask-server:latest
+```
+
+If more than one container are in the same network, they can call eachother just by the container name for example
+
+```
+root@f15bf440ec37:$ curl flask-server:3000
+```
+
 ## Links
 
 - [Docker Tutorial for Beginners](https://www.youtube.com/watch?v=LIpQGLdll7A)
+
+```
+
+```
