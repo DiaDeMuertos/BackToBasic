@@ -7,8 +7,13 @@ services:
     build: .
     ports:
       - 3001:3000
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000']
 
   os:
     image: ubuntu:16.04
     container_name: ubuntu
-    command: ['sleep', '5000']
+    depends_on:
+      app:
+        condition: service_healthy
+    command: ['sleep', '120']
