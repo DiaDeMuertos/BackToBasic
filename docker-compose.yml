@@ -9,6 +9,8 @@ services:
       - 3001:3000
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://localhost:3000']
+    networks:
+      - back-end
 
   os:
     image: ubuntu:16.04
@@ -16,4 +18,10 @@ services:
     depends_on:
       app:
         condition: service_healthy
+    networks:
+      - back-end
     command: ['sleep', '120']
+
+networks:
+  back-end:
+  front-end:
